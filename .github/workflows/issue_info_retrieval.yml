@@ -1,0 +1,12 @@
+name: Issue information retrieval
+on:
+    issues:
+      types: [opened, edited, milestoned]
+jobs:
+    retrieve_issue_info:
+        runs-on: ubuntu-latest
+        permissions:
+         contents: read
+        steps:
+            - name: Issue information retrieval
+              run: echo "${{toJson(github.event.issue)}}"
